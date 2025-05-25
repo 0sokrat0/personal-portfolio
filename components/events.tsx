@@ -12,7 +12,7 @@ export function Events() {
     {
       id: "event1",
       title: "Открытое занятие по ОПБ.05 Обществознание",
-      date: "2023",
+      date: "2024",
       location: "Колледж информатики и программирования",
       participants: "Группа ИСИП-624",
       description:
