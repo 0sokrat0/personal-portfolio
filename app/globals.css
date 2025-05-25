@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 240 10% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 15%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 15%;
+
+  --primary: 220 45% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 340 40% 45%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 160 30% 45%;
+  --accent-foreground: 160 50% 10%;
+
+  --muted: 240 5% 90%;
+  --muted-foreground: 240 5% 40%;
+
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 5% 87%;
+  --input: 240 5% 87%;
+  --ring: 220 45% 45%;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 240 10% 10%;
+  --foreground: 0 0% 90%;
+
+  --card: 240 10% 15%;
+  --card-foreground: 0 0% 90%;
+
+  --popover: 240 10% 15%;
+  --popover-foreground: 0 0% 90%;
+
+  --primary: 220 45% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 340 40% 45%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 160 30% 45%;
+  --accent-foreground: 160 50% 10%;
+
+  --muted: 240 10% 20%;
+  --muted-foreground: 240 5% 70%;
+
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 10% 30%;
+  --input: 240 10% 30%;
+  --ring: 220 45% 45%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-semibold;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold mb-6 text-primary relative inline-block;
+  }
+
+  .section-title::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-1/2 h-1 bg-primary/20 rounded-full;
+  }
+
+  .bubble-bg {
+    background-image: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.03) 0%, rgba(30, 64, 175, 0) 50%),
+      radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.03) 0%, rgba(56, 189, 248, 0) 50%),
+      radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.03) 0%, rgba(16, 185, 129, 0) 50%);
+  }
+
+  .card-decoration {
+    @apply absolute -z-10 w-24 h-24 rounded-full blur-3xl opacity-5;
+  }
+
+  .card-decoration-1 {
+    @apply bg-primary/50 -top-4 -right-4;
+  }
+
+  .card-decoration-2 {
+    @apply bg-secondary/50 -bottom-4 -left-4;
+  }
+
+  .image-frame {
+    @apply relative overflow-hidden rounded-lg shadow-md;
+  }
+
+  .image-frame::before {
+    content: "";
+    @apply absolute inset-0 border-4 border-white/20 rounded-lg z-10 pointer-events-none;
+  }
+
+  .image-frame img {
+    @apply transition-transform duration-700 ease-in-out;
+  }
+
+  .image-frame:hover img {
+    @apply scale-105;
+  }
+
+  .quote {
+    @apply relative italic text-lg text-neutral-600 pl-6 border-l-4 border-primary/30 py-2;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 pb-8 last:pb-0;
+  }
+
+  .timeline-item::before {
+    content: "";
+    @apply absolute left-0 top-0 w-4 h-4 rounded-full bg-primary;
+  }
+
+  .timeline-item::after {
+    content: "";
+    @apply absolute left-[7px] top-4 bottom-0 w-0.5 bg-primary/20;
+  }
+
+  .timeline-item:last-child::after {
+    @apply hidden;
+  }
+}
